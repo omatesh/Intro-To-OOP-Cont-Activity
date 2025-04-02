@@ -1,3 +1,4 @@
+from school_schedule.student import Student
 
 def test_student_class_instantiation():
     
@@ -89,3 +90,20 @@ def test_summary_gives_full_summary():
 
     # assert
     assert result == "Peter is a junior enrolled in 3 classes: math, english, potions_making"
+
+
+def test_student_add_class_invalid_data():
+    student = Student("Claire", "junior", ["math", "english"])
+    invalid_class_name = ""
+    original_len_of_classes = len(student.classes)
+
+    # Act
+    result = student.add_class(invalid_class_name)
+
+    assert student.classes == original_len_of_classes
+#   assert error
+#   assert student.isinstance(invalid_class_name, str) is True
+
+
+
+  
