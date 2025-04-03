@@ -94,16 +94,31 @@ def test_summary_gives_full_summary():
 
 def test_student_add_class_invalid_data():
     student = Student("Claire", "junior", ["math", "english"])
-    invalid_class_name = ""
+    invalid_class_name = 123
     original_len_of_classes = len(student.classes)
 
     # Act
     result = student.add_class(invalid_class_name)
-
-    assert student.classes == original_len_of_classes
-#   assert error
-#   assert student.isinstance(invalid_class_name, str) is True
-
+    
+    #assert
+    assert isinstance(student.invalid_class_name[-1], str) is True
 
 
-  
+def test_student_class_instantiation_invalid_data():
+    
+    # arrange
+    name = 123
+    grade = 123
+    classes = [123, "english"]
+
+    # act
+    student = Student(
+        name, 
+        grade, 
+        classes
+        )
+
+    # assert
+    assert isinstance(student.name, str) 
+    assert isinstance(student.grade, str)
+    assert isinstance(student.classes, list)
